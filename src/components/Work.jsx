@@ -25,7 +25,7 @@ const Work = () => {
         </div> */}
 
 
-        <div className="aspect-square bg-[url('./assets/work-3.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
+        <div className="aspect-square bg-[url('./assets/CareConnect.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
 
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
                 <div>
@@ -52,9 +52,13 @@ const Work = () => {
                     <h2 className="font-semibold">CareConnect : A Appointment Management System</h2>
                     <p className="text-sm text-gray-700">MERN Stack Application using MongoDB, Express.js, React.js, and Node.js</p>
                 </div>
-                <div className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+                <a
+                href='https://frontend-care-connect.vercel.app/doctors'
+                target='_blank'
+                rel='noopener noreferrer'
+                 className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
                     <img src={send_icon} alt="" className="w-5"/>
-                </div>
+                </a>
             </div>
         </div>
 
