@@ -53,7 +53,7 @@ const Work = () => {
                     <p className="text-sm text-gray-700">MERN Stack Application using MongoDB, Express.js, React.js, and Node.js</p>
                 </div>
                 <a
-                href='https://frontend-care-connect.vercel.app/doctors'
+                href='https://frontend-care-connect.vercel.app/'
                 target='_blank'
                 rel='noopener noreferrer'
                  className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
