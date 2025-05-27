@@ -64,18 +64,24 @@ const Work = () => {
 
 
 
-        {/* <div className="aspect-square bg-[url('./assets/work-4.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
+        <div className="aspect-square bg-[url('./assets/work-4.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group">
 
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
                 <div>
-                    <h2 className="font-semibold">UI/UX designing</h2>
-                    <p className="text-sm text-gray-700">UI/UX Design</p>
+                    <h2 className="font-semibold">bg-remover</h2>
+                    <p className="text-sm text-gray-700">Drag, drop, and download – it's that simple.
+No editing skills required. Let our AI handle the hard work.</p>
                 </div>
-                <div className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+                <a
+                href='https://bg-removal-d9bi.vercel.app/'
+                target='_blank'
+                rel='noopener noreferrer'
+                className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
                     <img src={send_icon} alt="" className="w-5"/>
-                </div>
+                </a>
             </div>
-        </div> */}
+        </div>
+
     </div>
     <a href="https://github.com/anupancholi" className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500
     dark:text-white dark:border-white dark:hover:bg-darkHover">Show more
