@@ -9,7 +9,7 @@ const Work = () => {
       <h4 className="text-center mb-2 text-lg font-Ovo">My portfolio</h4>
       <h2 className="text-center text-5xl font-Ovo">My latest work</h2>
       <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">Welcome to my web development portfolio! Here you'll find a curated selection of projects that showcase my skills in both frontend and full-stack development. From responsive user interfaces to robust backend integrations, each project highlights my passion for building seamless and scalable web applications.</p>
-
+      <p>click on the app you want to use</p>
       <div className="grid grid-cols-auto my-10 gap-5 dark:text-black">
         <a
           href="https://webpedia.streamlit.app"
@@ -81,7 +81,7 @@ const Work = () => {
           </div>
         </a>
 
-
+<br />
 
         <a
           href="https://bg-removal-d9bi.vercel.app/"
