@@ -8,7 +8,7 @@ const Work = () => {
     <div id="work" className="w-full px-[12%] py-10 scroll-mt-20">
       <h4 className="text-center mb-2 text-lg font-Ovo">My portfolio</h4>
       <h2 className="text-center text-5xl font-Ovo">My latest work</h2>
-      <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">Welcome to my web development portfolio! Here you'll find a curated selection of projects that showcase my skills in both frontend and full-stack development. From responsive user interfaces to robust backend integrations, each project highlights my passion for building seamless and scalable web applications.click on the app you want to use </p>
+      <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">Welcome to my web development portfolio! Here you'll find a curated selection of projects that showcase my skills in both frontend and full-stack development. From responsive user interfaces to robust backend integrations, each project highlights my passion for building seamless and scalable web applications. <br /> click on the app you want to use </p>
 
       <div className="grid grid-cols-auto my-10 gap-5 dark:text-black">
         <a
@@ -40,7 +40,7 @@ const Work = () => {
           rel="noopener noreferrer"
           className="block group"
         >
-          <div className="aspect-square bg-[url('./assets/blog_generator.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer">
+          <div className="aspect-square bg-[url('./assets/Sentiment-analysis-Final.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer">
 
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
@@ -64,7 +64,7 @@ const Work = () => {
           rel="noopener noreferrer"
           className="block group"
         >
-          <div className="aspect-square bg-[url('./assets/CareConnect.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer">
+          <div className="aspect-square bg-[url('./assets/dalleimage.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer">
 
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
@@ -89,7 +89,7 @@ const Work = () => {
           rel="noopener noreferrer"
           className="block group"
         >
-          <div className="aspect-square bg-[url('./assets/work-4.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer">
+          <div className="aspect-square bg-[url('./assets/blog_generator.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer">
 
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
