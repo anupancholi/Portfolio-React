@@ -35,7 +35,7 @@ const Work = () => {
 
 
         <a
-          href="https://short-blog-writer.onrender.com"
+          href="https://anurodh-sentimentclassification.streamlit.app"
           target="_blank"
           rel="noopener noreferrer"
           className="block group"
@@ -44,8 +44,8 @@ const Work = () => {
 
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
-                <h2 className="font-semibold">Blog Generator</h2>
-                <p className="text-sm text-gray-700">Web Application using ML/LLM-Integrated Tool</p>
+                <h2 className="font-semibold">Sentiment Analysis Web App</h2>
+                <p className="text-sm text-gray-700">powered by a TinyBERT model fine-tuned</p>
               </div>
               <div className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
                 <img src={send_icon} alt="Go to project" className="w-5" />
@@ -59,7 +59,7 @@ const Work = () => {
 
 
         <a
-          href="https://frontend-care-connect.vercel.app/"
+          href="https://dalleimagegenerator.onrender.com"
           target="_blank"
           rel="noopener noreferrer"
           className="block group"
@@ -68,9 +68,9 @@ const Work = () => {
 
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
-                <h2 className="font-semibold">CareConnect: An Appointment Management System</h2>
+                <h2 className="font-semibold">AI Image Generator</h2>
                 <p className="text-sm text-gray-700">
-                  MERN Stack Application using MongoDB, Express.js, React.js, and Node.js
+                  Generate images from text prompts using DALL·E
                 </p>
               </div>
               <div className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
@@ -84,7 +84,7 @@ const Work = () => {
 
 
         <a
-          href="https://bg-removal-d9bi.vercel.app/"
+          href="https://short-blog-writer.onrender.com"
           target="_blank"
           rel="noopener noreferrer"
           className="block group"
@@ -93,9 +93,9 @@ const Work = () => {
 
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
-                <h2 className="font-semibold">bg-remover</h2>
+                <h2 className="font-semibold">Blog Generator</h2>
                 <p className="text-sm text-gray-700">
-                  Drag, drop, and download – it's that simple. No editing skills required. Let our AI handle the hard work.
+                  Web Application using ML/LLM-Integrated Tool
                 </p>
               </div>
               <div className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
@@ -109,7 +109,7 @@ const Work = () => {
       </div>
 
       <div className="grid grid-cols-auto my-10 gap-5 dark:text-black">
-        <a
+        {/* <a
           href="https://webpedia.streamlit.app"
           target="_blank"
           rel="noopener noreferrer"
@@ -128,11 +128,11 @@ const Work = () => {
             </div>
 
           </div>
-        </a>
+        </a> */}
 
 
 
-        <a
+        {/* <a
           href="https://short-blog-writer.onrender.com"
           target="_blank"
           rel="noopener noreferrer"
@@ -152,7 +152,7 @@ const Work = () => {
 
           </div>
         </a>
-
+ */}
 
 
 
