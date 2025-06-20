@@ -132,18 +132,18 @@ const Work = () => {
 
 
 
-        {/* <a
-          href="https://short-blog-writer.onrender.com"
+        <a
+          href="https://talentscout-hiring-assistant.streamlit.app"
           target="_blank"
           rel="noopener noreferrer"
           className="block group"
         >
-          <div className="aspect-square bg-[url('./assets/blog_generator.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer">
+          <div className="aspect-square bg-[url('./assets/talentScout.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer">
 
             <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
-                <h2 className="font-semibold">Blog Generator</h2>
-                <p className="text-sm text-gray-700">Web Application using ML/LLM-Integrated Tool</p>
+                <h2 className="font-semibold">TalentScout Hiring Assistant Chatbot</h2>
+                <p className="text-sm text-gray-700">It collects essential candidate details and generates tailored technical interview questions based on a candidate's declared tech stack using OpenAI GPT, all via a simple web chat interface.</p>
               </div>
               <div className="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
                 <img src={send_icon} alt="Go to project" className="w-5" />
@@ -152,7 +152,7 @@ const Work = () => {
 
           </div>
         </a>
- */}
+
 
 
 
