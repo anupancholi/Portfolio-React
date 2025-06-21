@@ -8,8 +8,8 @@ const Work = () => {
     <div id="work" className="w-full px-[12%] py-10 scroll-mt-20">
       <h4 className="text-center mb-2 text-lg font-Ovo">My portfolio</h4>
       <h2 className="text-center text-5xl font-Ovo">My latest work</h2>
-      <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">Welcome to my web development portfolio! Here you'll find a curated selection of projects that showcase my skills in both frontend and full-stack development. From responsive user interfaces to robust backend integrations, each project highlights my passion for building seamless and scalable web applications. <br /> click on the app you want to use </p>
-
+      <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">Welcome to my web development portfolio! Here you'll find a curated selection of projects that showcase my skills in both frontend and full-stack development. From responsive user interfaces to robust backend integrations, each project highlights my passion for building seamless and scalable web applications. </p>
+      <h3>click on the app you want to use</h3>
       <div className="grid grid-cols-auto my-10 gap-5 dark:text-black">
         <a
           href="https://webpedia.streamlit.app"
