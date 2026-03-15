@@ -74,4 +74,32 @@
   .dark .section-divider {
     background: linear-gradient(to right, transparent, rgba(124, 58, 237, 0.2), transparent);
   }
+
+  /* Outline/hollow text — light mode: violet stroke */
+  .text-outline {
+    -webkit-text-stroke: 2.5px #7c3aed;
+    color: transparent;
+  }
+  /* dark mode: lighter violet stroke */
+  .dark .text-outline {
+    -webkit-text-stroke: 2.5px #a78bfa;
+  }
+
+  /* Float animations for hero cards */
+  .float-1 { animation: float1 5s ease-in-out infinite; }
+  .float-2 { animation: float2 6s ease-in-out infinite 0.8s; }
+  .float-3 { animation: float3 4.5s ease-in-out infinite 1.6s; }
+
+  @keyframes float1 {
+    0%, 100% { transform: translateY(0px) rotate(-1deg); }
+    50%       { transform: translateY(-14px) rotate(1deg); }
+  }
+  @keyframes float2 {
+    0%, 100% { transform: translateY(0px) rotate(1deg); }
+    50%       { transform: translateY(10px) rotate(-1deg); }
+  }
+  @keyframes float3 {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-8px); }
+  }
 }
