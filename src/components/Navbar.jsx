@@ -1,123 +1,159 @@
-import React, { useEffect, useRef } from 'react'
-import logo from '../assets/logo.png'
-import logo_dark from '../assets/logo_dark.png'
-import header_bg_color from '../assets/header-bg-color.png'
+import { useEffect, useRef, useState } from 'react'
 import moon_icon from '../assets/moon_icon.png'
 import sun_icon from '../assets/sun_icon.png'
-import arrow_icon from '../assets/arrow-icon.png'
-import arrow_icon_dark from '../assets/arrow-icon-dark.png'
 import menu_black from '../assets/menu-black.png'
 import menu_white from '../assets/menu-white.png'
 import close_black from '../assets/close-black.png'
 import close_white from '../assets/close-white.png'
 
+const navLinks = [
+  { label: 'Home',      href: '#top' },
+  { label: 'About',     href: '#about' },
+  { label: 'Expertise', href: '#services' },
+  { label: 'Work',      href: '#work' },
+  { label: 'Contact',   href: '#contact' },
+]
+
 const Navbar = () => {
+  const sideMenuRef = useRef()
+  const [scrolled, setScrolled] = useState(false)
+  const [isDark, setIsDark] = useState(false)
 
-  const sideMenuRef = useRef();
-  const navRef = useRef();
-  const navLinkRef = useRef();
+  const openMenu  = () => { sideMenuRef.current.style.transform = 'translateX(-16rem)' }
+  const closeMenu = () => { sideMenuRef.current.style.transform = 'translateX(16rem)' }
 
-  const openMenu = ()=>{
-    sideMenuRef.current.style.transform = 'translateX(-16rem)';
-  }
-  const closeMenu = ()=>{
-    sideMenuRef.current.style.transform = 'translateX(16rem)';
-  }
-  const toggleTheme = ()=>{
-    
-    document.documentElement.classList.toggle('dark');
-
-    if(document.documentElement.classList.contains('dark')){
-        localStorage.theme = 'dark';
-    }else{
-        localStorage.theme = 'light';
-    }
+  const toggleTheme = () => {
+    const html = document.documentElement
+    html.classList.toggle('dark')
+    const dark = html.classList.contains('dark')
+    localStorage.theme = dark ? 'dark' : 'light'
+    setIsDark(dark)
   }
 
-  useEffect(()=>{
-  
-    window.addEventListener('scroll', ()=>{
-        if(scrollY > 50){
-          navRef.current.classList.add('bg-white', 'bg-opacity-50', 'backdrop-blur-lg', 'shadow-sm', 'dark:bg-darkTheme', 'dark:shadow-white/20');
-          navLinkRef.current.classList.remove('bg-white', 'shadow-sm', 'bg-opacity-50', 'dark:border', 'dark:border-white/50', "dark:bg-transparent");
-        }else{
-          navRef.current.classList.remove('bg-white', 'bg-opacity-50', 'backdrop-blur-lg', 'shadow-sm', 'dark:bg-darkTheme', 'dark:shadow-white/20');
-          navLinkRef.current.classList.add('bg-white', 'shadow-sm', 'bg-opacity-50', 'dark:border', 'dark:border-white/50', "dark:bg-transparent");
-        }
-    })
-    
-    // -------- light mode and dark mode -----------
-    
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-      }
-    
-      
-  },[])
+  useEffect(() => {
+    // Restore saved theme
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const useDark = localStorage.theme === 'dark' || (!('theme' in localStorage) && prefersDark)
+    if (useDark) { document.documentElement.classList.add('dark') }
+    else          { document.documentElement.classList.remove('dark') }
+    setIsDark(useDark)
+
+    // Scroll listener
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <>
-    <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]
-    dark:hidden">
-        <img src={header_bg_color} alt="" className="w-full"/>
-    </div>
+      {/* ── Desktop nav ── */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'py-3 bg-white/80 dark:bg-darkTheme/80 backdrop-blur-xl border-b border-zinc-100 dark:border-zinc-800/60 shadow-sm'
+          : 'py-5'
+      }`}>
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
 
+          {/* Logo / monogram */}
+          <a href="#top" className="flex items-center gap-2 group">
+            <span className="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center text-white font-bold text-sm font-Outfit select-none">
+              AP
+            </span>
+            <span className="font-semibold text-slate-800 dark:text-white font-Outfit hidden sm:block">
+              Anurodh<span className="text-violet-600 dark:text-violet-400"> Pancholi</span>
+            </span>
+          </a>
 
-    <nav ref={navRef} className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
+          {/* Pill nav — desktop */}
+          <ul className={`hidden md:flex items-center gap-1 rounded-full px-3 py-1.5 transition-all duration-300 ${
+            scrolled
+              ? 'bg-transparent'
+              : 'bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md border border-zinc-200/60 dark:border-zinc-700/50 shadow-sm'
+          }`}>
+            {navLinks.map(link => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="px-4 py-1.5 rounded-full text-sm font-medium text-slate-600 dark:text-zinc-400 hover:text-violet-600 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-950/40 transition-all duration-200 font-Outfit"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        <img src={logo} alt="Logo"
-        className="w-28 cursor-pointer mr-14 dark:hidden" />
+          {/* Right actions */}
+          <div className="flex items-center gap-3">
+            {/* Theme toggle */}
+            <button
+              onClick={toggleTheme}
+              className="w-9 h-9 rounded-full flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 hover:bg-violet-100 dark:hover:bg-violet-950/50 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {isDark
+                ? <img src={sun_icon}  alt="Light mode" className="w-4" />
+                : <img src={moon_icon} alt="Dark mode"  className="w-4" />
+              }
+            </button>
 
-        <img src={logo_dark} alt="Logo"
-        className="w-28 cursor-pointer mr-14 hidden dark:block" />
+            {/* Hire me button */}
+            <a
+              href="#contact"
+              className="hidden lg:flex items-center gap-2 px-5 py-2 bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium rounded-full transition-colors font-Outfit"
+            >
+              Hire me
+            </a>
 
-        <ul ref={navLinkRef} className="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo
-        dark:border dark:border-white/50 dark:bg-transparent ">
-            <li><a href="#top">Home</a></li>
-            <li><a href="#about">About me</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#work">My Work</a></li>
-            <li><a href="#contact">Contact me</a></li>
-        </ul>
-
-        <div className="flex items-center gap-4">
-        <button onClick={toggleTheme}>
-            <img src={moon_icon} alt="" className="w-6 dark:hidden" />
-            <img src={sun_icon} alt="" className="w-6 hidden dark:block" />
-        </button>
-
-        <a href="#contact" 
-        className="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-Ovo dark:border-white/50">
-        Contact 
-        <img src={arrow_icon} alt="" className="w-3 dark:hidden" />
-        <img src={arrow_icon_dark} alt="" className="w-3 hidden dark:block" />
-    </a>
-
-        <button className="block md:hidden ml-3" onClick={openMenu}>
-            <img src={menu_black} alt="" className="w-6 dark:hidden" />
-            <img src={menu_white} alt="" className="w-6 hidden dark:block" />
-        </button>
-
+            {/* Mobile hamburger */}
+            <button className="md:hidden w-9 h-9 flex items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800" onClick={openMenu}>
+              <img src={menu_black} alt="" className="w-4 dark:hidden" />
+              <img src={menu_white} alt="" className="w-4 hidden dark:block" />
+            </button>
+          </div>
         </div>
-{/* -- ----- mobile menu ------  -- */}
-        <ul ref={sideMenuRef} className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 font-Ovo dark:bg-darkHover dark:text-white">
+      </nav>
 
-            <div className="absolute right-6 top-6" onClick={closeMenu}>
-                <img src={close_black} alt="" className="w-5 cursor-pointer dark:hidden" />
+      {/* ── Mobile slide-in drawer ── */}
+      <div
+        ref={sideMenuRef}
+        className="fixed top-0 right-0 bottom-0 w-64 z-[100] bg-white dark:bg-darkSurface border-l border-zinc-100 dark:border-zinc-800 shadow-2xl transition-transform duration-400 translate-x-64"
+        style={{ transform: 'translateX(16rem)' }}
+      >
+        <button
+          onClick={closeMenu}
+          className="absolute top-5 right-5 w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-700 flex items-center justify-center"
+        >
+          <img src={close_black} alt="" className="w-3 dark:hidden" />
+          <img src={close_white} alt="" className="w-3 hidden dark:block" />
+        </button>
 
-                <img src={close_white} alt="" className="w-5 cursor-pointer hidden dark:block" />
-            </div>
-
-            <li><a href="#top" onClick={closeMenu}>Home</a></li>
-            <li><a href="#about" onClick={closeMenu}>About me</a></li>
-            <li><a href="#services" onClick={closeMenu}>Services</a></li>
-            <li><a href="#work" onClick={closeMenu}>My Work</a></li>
-            <li><a href="#contact" onClick={closeMenu}>Contact me</a></li>
-        </ul>
-    
-</nav>
+        <div className="pt-20 px-8">
+          <div className="flex items-center gap-2 mb-8">
+            <span className="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center text-white font-bold text-sm">AP</span>
+            <span className="font-semibold dark:text-white">Anurodh</span>
+          </div>
+          <ul className="flex flex-col gap-1">
+            {navLinks.map(link => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="block px-4 py-2.5 rounded-xl text-slate-700 dark:text-zinc-300 hover:text-violet-600 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-950/40 transition-all font-Outfit font-medium"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="#contact"
+            onClick={closeMenu}
+            className="mt-8 w-full flex items-center justify-center px-5 py-2.5 bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium rounded-full transition-colors font-Outfit"
+          >
+            Hire me
+          </a>
+        </div>
+      </div>
     </>
   )
 }

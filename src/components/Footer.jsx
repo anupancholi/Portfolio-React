@@ -1,33 +1,56 @@
-import React from 'react'
-import logo from '../assets/logo.png'
-import logo_dark from '../assets/logo_dark.png'
-import mail_icon from '../assets/mail_icon.png'
-import mail_icon_dark from '../assets/mail_icon_dark.png'
-
 const Footer = () => {
   return (
-    <div className="mt-20">
-    <div className="text-center">
-        <img src={logo} alt="" className="w-36 mx-auto mb-2 dark:hidden"/>
-        <img src={logo_dark} alt="" className="w-36 mx-auto mb-2 hidden dark:block"/>
+    <footer className="w-full px-[8%] py-10 border-t border-zinc-100 dark:border-zinc-800/60">
+      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
 
+        {/* left — monogram + name */}
+        <a href="#top" className="flex items-center gap-2 group">
+          <span className="w-7 h-7 rounded-lg bg-violet-600 flex items-center justify-center text-white font-bold text-xs font-Outfit select-none">
+            AP
+          </span>
+          <span className="text-sm font-semibold text-slate-700 dark:text-zinc-300 font-Outfit">
+            Anurodh Pancholi
+          </span>
+        </a>
 
-        <div className="w-max flex items-center gap-2 mx-auto">
-            <img src={mail_icon} alt="" className="w-6 dark:hidden"/>
-            <img src={mail_icon_dark} alt="" className="w-6 hidden dark:block"/>
+        {/* center — copyright */}
+        <p className="text-xs text-slate-400 dark:text-zinc-500 font-Outfit">
+          © {new Date().getFullYear()} Anurodh Pancholi. All rights reserved.
+        </p>
 
-            pancholianurodh@gmail.com
-        </div>
-    </div>
-    <div className="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6">
-        <p>© 2024 Anurodh Pancholi. All rights reserved.</p>
-        <ul className="flex items-center gap-10 justify-center mt-4 sm:mt-0">
-            <li><a target='_blank' href="https://github.com/anupancholi">GitHub</a></li>
-            <li><a target='_blank' href="https://www.linkedin.com/in/anurodh-pancholi">LinkedIn</a></li>
-            {/* <li><a target='_blank' href="https://instagram.com/greatstackdev">Twitter</a></li> */}
+        {/* right — social links */}
+        <ul className="flex items-center gap-5">
+          <li>
+            <a
+              href="https://github.com/anupancholi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-semibold text-slate-500 dark:text-zinc-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors font-Outfit"
+            >
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/anurodh-pancholi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-semibold text-slate-500 dark:text-zinc-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors font-Outfit"
+            >
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:pancholianurodh@gmail.com"
+              className="text-xs font-semibold text-slate-500 dark:text-zinc-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors font-Outfit"
+            >
+              Email
+            </a>
+          </li>
         </ul>
-    </div>
- </div>
+      </div>
+    </footer>
   )
 }
 

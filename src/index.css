@@ -1,3 +1,77 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Thin violet scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #7c3aed; border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #6d28d9; }
+
+  /* Text selection */
+  ::selection { background: rgba(124, 58, 237, 0.15); color: #7c3aed; }
+  .dark ::selection { background: rgba(167, 139, 250, 0.2); color: #a78bfa; }
+}
+
+@layer utilities {
+  /* Gradient text utility */
+  .text-gradient {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #6366f1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .dark .text-gradient {
+    background: linear-gradient(135deg, #a78bfa 0%, #c084fc 50%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtle dot-grid background */
+  .dot-grid {
+    background-image: radial-gradient(circle, rgba(124, 58, 237, 0.12) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .dark .dot-grid {
+    background-image: radial-gradient(circle, rgba(124, 58, 237, 0.08) 1px, transparent 1px);
+  }
+
+  /* Glass card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .dark .glass-card {
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid rgba(39, 39, 42, 0.8);
+  }
+
+  /* Gradient border ring (for profile image) */
+  .gradient-ring {
+    background: linear-gradient(135deg, #7c3aed, #a855f7, #6366f1);
+    padding: 3px;
+    border-radius: 9999px;
+  }
+
+  /* Section divider */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(124, 58, 237, 0.3), transparent);
+  }
+  .dark .section-divider {
+    background: linear-gradient(to right, transparent, rgba(124, 58, 237, 0.2), transparent);
+  }
+}
