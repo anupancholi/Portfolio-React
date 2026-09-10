@@ -87,65 +87,57 @@ const Header = () => {
         </div>
 
         {/* ── RIGHT — photo + floating cards ── */}
-        <div className="rise flex-shrink-0 relative w-full lg:w-[420px] h-[400px] lg:h-[520px] flex items-center justify-center" style={{ animationDelay: '300ms' }}>
+        <div className="rise flex-shrink-0 w-full lg:w-[420px]" style={{ animationDelay: '300ms' }}>
+        <div className="relative w-full h-[330px] sm:h-[400px] lg:h-[520px] flex items-center justify-center">
 
           {/* glow ring behind photo */}
-          <div className="absolute w-72 h-72 lg:w-80 lg:h-80 rounded-full bg-gradient-to-tr from-violet-500/20 to-indigo-500/20 dark:from-violet-500/15 dark:to-indigo-500/15 blur-2xl animate-glow" />
+          <div className="absolute w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full bg-gradient-to-tr from-violet-500/20 to-indigo-500/20 dark:from-violet-500/15 dark:to-indigo-500/15 blur-2xl animate-glow" />
 
-          {/* profile photo */}
+          {/* profile photo — smaller on phones so the tags have corners to sit in */}
           <div className="gradient-ring shadow-glow z-10 relative">
             <img
               src={profile_img}
               alt="Anurodh Pancholi"
-              className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full object-cover block"
+              className="w-40 h-40 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full object-cover block"
             />
           </div>
 
-          {/* ── Floating card 1 — top right: role ── */}
-          <div className="float-1 absolute top-4 right-4 lg:top-8 lg:right-0 bg-white dark:bg-darkSurface border border-zinc-100 dark:border-zinc-800 rounded-2xl px-4 py-3 shadow-card z-20 min-w-[140px]">
-            <p className="text-[10px] font-semibold uppercase tracking-widest text-violet-500 dark:text-violet-400 font-Outfit mb-0.5">Role</p>
-            <p className="text-sm font-bold text-slate-800 dark:text-white font-Outfit leading-tight">SDE I</p>
-            <p className="text-xs text-slate-400 dark:text-zinc-500 font-Outfit">@ Responsenet.org</p>
+          {/* ── Floating card 1 — top right: real-time ── */}
+          <div className="float-1 absolute top-0 right-0 sm:top-4 sm:right-4 lg:top-8 lg:right-0 bg-white dark:bg-darkSurface border border-zinc-100 dark:border-zinc-800 rounded-xl sm:rounded-2xl px-2.5 py-2 sm:px-4 sm:py-3 shadow-card z-20 sm:min-w-[150px]">
+            <p className="text-[8px] sm:text-[10px] font-semibold uppercase tracking-widest text-violet-500 dark:text-violet-400 font-Outfit mb-0.5">Real-time</p>
+            <p className="text-[11px] sm:text-sm font-bold text-slate-800 dark:text-white font-Outfit leading-tight">Live GPS tracking</p>
+            <p className="text-[9px] sm:text-xs text-slate-400 dark:text-zinc-500 font-Outfit">Socket.io + Redis</p>
           </div>
 
-          {/* ── Floating card 2 — left middle: stats ── */}
-          <div className="float-2 absolute top-1/2 -translate-y-1/2 left-0 lg:-left-4 bg-white dark:bg-darkSurface border border-zinc-100 dark:border-zinc-800 rounded-2xl px-4 py-3 shadow-card z-20">
-            <p className="text-[10px] font-semibold uppercase tracking-widest text-violet-500 dark:text-violet-400 font-Outfit mb-1">In production</p>
-            <div className="flex gap-4">
-              <div>
-                <p className="text-xl font-black text-slate-900 dark:text-white font-Outfit leading-none">2</p>
-                <p className="text-[10px] text-slate-400 dark:text-zinc-500 font-Outfit">SaaS platforms</p>
-              </div>
-              <div>
-                <p className="text-xl font-black text-slate-900 dark:text-white font-Outfit leading-none">7</p>
-                <p className="text-[10px] text-slate-400 dark:text-zinc-500 font-Outfit">User roles</p>
-              </div>
-            </div>
+          {/* ── Floating card 2 — left: in production ──
+              Nudged out to -left-12 on desktop so it clips the edge of the
+              photo rather than sitting on top of it. */}
+          <div className="float-2 absolute bottom-14 left-0 sm:bottom-auto sm:top-1/2 sm:left-0 lg:-left-12 bg-white dark:bg-darkSurface border border-zinc-100 dark:border-zinc-800 rounded-xl sm:rounded-2xl px-2.5 py-2 sm:px-4 sm:py-3 shadow-card z-20">
+            <p className="text-[8px] sm:text-[10px] font-semibold uppercase tracking-widest text-violet-500 dark:text-violet-400 font-Outfit mb-0.5">In production</p>
+            <p className="text-[11px] sm:text-sm font-bold text-slate-800 dark:text-white font-Outfit leading-tight">2 SaaS platforms</p>
+            <p className="text-[9px] sm:text-xs text-slate-400 dark:text-zinc-500 font-Outfit">live on AWS</p>
           </div>
 
           {/* ── Floating card 3 — bottom right: open to work ── */}
-          <div className="float-3 absolute bottom-8 right-2 lg:bottom-12 lg:-right-2 bg-white dark:bg-darkSurface border border-zinc-100 dark:border-zinc-800 rounded-2xl px-4 py-3 shadow-card z-20 min-w-[150px]">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-green-600 dark:text-green-400 font-Outfit">Available</p>
+          <div className="float-3 absolute bottom-0 right-0 sm:bottom-8 sm:right-2 lg:bottom-12 lg:-right-2 bg-white dark:bg-darkSurface border border-zinc-100 dark:border-zinc-800 rounded-xl sm:rounded-2xl px-2.5 py-2 sm:px-4 sm:py-3 shadow-card z-20 sm:min-w-[150px]">
+            <div className="flex items-center gap-1.5 sm:gap-2 mb-0.5 sm:mb-1">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0" />
+              <p className="text-[8px] sm:text-[10px] font-semibold uppercase tracking-widest text-green-600 dark:text-green-400 font-Outfit">Available</p>
             </div>
-            <p className="text-xs font-semibold text-slate-700 dark:text-zinc-300 font-Outfit leading-tight">Open to new<br/>opportunities</p>
+            <p className="text-[10px] sm:text-xs font-semibold text-slate-700 dark:text-zinc-300 font-Outfit leading-tight">Open to new<br/>opportunities</p>
           </div>
 
-          {/* ── Floating card 4 — top left: deployment badge ── */}
-          <div className="float-2 absolute top-8 left-4 lg:top-14 lg:left-2 bg-violet-600 rounded-2xl px-4 py-3 shadow-glow-sm z-20">
-            <p className="text-[10px] font-semibold uppercase tracking-widest text-violet-200 font-Outfit mb-0.5">Deployed via</p>
-            <p className="text-sm font-bold text-white font-Outfit leading-tight">GitLab CI/CD<br/>to AWS EC2</p>
+          {/* ── Floating card 4 — top left: payments ── */}
+          <div className="float-2 absolute top-12 left-0 sm:top-8 sm:left-4 lg:top-14 lg:left-2 bg-violet-600 rounded-xl sm:rounded-2xl px-2.5 py-2 sm:px-4 sm:py-3 shadow-glow-sm z-20">
+            <p className="text-[8px] sm:text-[10px] font-semibold uppercase tracking-widest text-violet-200 font-Outfit mb-0.5">Payments</p>
+            <p className="text-[11px] sm:text-sm font-bold text-white font-Outfit leading-tight">Stripe billing</p>
+            <p className="text-[9px] sm:text-xs text-violet-200/80 font-Outfit">6 organisation types</p>
           </div>
 
         </div>
+        </div>
       </Container>
 
-      {/* ── scroll cue ── */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-30">
-        <span className="text-[9px] font-Outfit tracking-[0.2em] uppercase text-slate-400">scroll</span>
-        <div className="w-px h-10 bg-gradient-to-b from-violet-400 to-transparent" />
-      </div>
     </section>
   )
 }

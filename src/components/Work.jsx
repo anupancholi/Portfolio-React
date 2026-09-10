@@ -79,7 +79,7 @@ const Work = () => {
       <SectionHeading
         eyebrow="My portfolio"
         title="My latest work"
-        subtitle="The first four are what I work on at Responsenet.org. The rest are things I built to learn something new."
+        subtitle="The first four are work from Responsenet.org. The rest are things I built to learn something new."
       />
 
       {/* 6 cards → two clean rows of three */}
@@ -105,27 +105,21 @@ const Work = () => {
                   }
                 />
 
-                {/* darken only photographic artwork — a padded logo needs no scrim */}
-                {p.fit !== 'contain' && (
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-                )}
-
                 {/* accent top bar */}
                 <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${p.accent}`} />
-
-                {/* tag pill */}
-                <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest bg-black/55 backdrop-blur-sm text-white px-3 py-1 rounded-full font-Outfit border border-white/10">
-                  {p.tag}
-                </span>
               </div>
 
-              {/* info row — mt-auto pins it to the bottom so every card matches */}
-              <div className="px-5 py-4 mt-auto flex items-center justify-between gap-3">
+              {/* info row */}
+              <div className="px-5 py-4 flex items-start justify-between gap-3">
                 <div className="min-w-0">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-violet-600 dark:text-violet-400 font-Outfit mb-1.5">
+                    {p.tag}
+                  </p>
                   <h3 className="font-bold text-slate-800 dark:text-white font-Outfit truncate">{p.title}</h3>
-                  <p className="text-xs text-slate-500 dark:text-zinc-400 font-Outfit mt-0.5 leading-snug">{p.desc}</p>
+                  {/* reserve two lines so every title in a row sits on one baseline */}
+                  <p className="text-xs text-slate-500 dark:text-zinc-400 font-Outfit mt-0.5 leading-snug min-h-[2rem]">{p.desc}</p>
                 </div>
-                <div className={`w-9 h-9 flex-shrink-0 rounded-full bg-gradient-to-br ${p.accent} flex items-center justify-center group-hover:scale-110 transition-transform duration-200 shadow-sm`}>
+                <div className={`w-9 h-9 mt-4 flex-shrink-0 rounded-full bg-gradient-to-br ${p.accent} flex items-center justify-center group-hover:scale-110 transition-transform duration-200 shadow-sm`}>
                   <img src={send_icon} alt="" className="w-3.5 brightness-0 invert" />
                 </div>
               </div>

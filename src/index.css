@@ -141,6 +141,15 @@
     background: linear-gradient(to right, transparent, rgba(167, 139, 250, 0.18), transparent);
   }
 
+  /* Rotating hero fact on phones — each one slides in from the right */
+  .tag-slide {
+    animation: tagSlide 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @keyframes tagSlide {
+    from { opacity: 0; transform: translateX(28px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
   /* Reading-progress bar pinned under the navbar */
   .scroll-progress {
     transform-origin: 0 50%;
@@ -161,7 +170,8 @@
     transition: none;
   }
 
-  .rise {
+  .rise,
+  .tag-slide {
     opacity: 1;
     animation: none;
   }
