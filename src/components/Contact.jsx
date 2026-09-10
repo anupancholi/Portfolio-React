@@ -112,7 +112,8 @@ const Contact = () => {
           />
         </div>
 
-        <div className="h-captcha mb-5" data-captcha="true" />
+        {/* the widget renders a fixed-width iframe — centre it in the form */}
+        <div className="h-captcha mb-5 flex justify-center" data-captcha="true" />
 
         <button
           type="submit"
