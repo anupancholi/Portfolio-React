@@ -14,10 +14,14 @@ const navLinks = [
   { label: 'Contact',   href: '#contact' },
 ]
 
+const sectionIds = navLinks.map(l => l.href.slice(1))
+
 const Navbar = () => {
   const sideMenuRef = useRef()
   const [scrolled, setScrolled] = useState(false)
   const [isDark, setIsDark] = useState(false)
+  const [active, setActive] = useState('top')
+  const [progress, setProgress] = useState(0)
 
   const openMenu  = () => { sideMenuRef.current.style.transform = 'translateX(-16rem)' }
   const closeMenu = () => { sideMenuRef.current.style.transform = 'translateX(16rem)' }
@@ -38,10 +42,40 @@ const Navbar = () => {
     else          { document.documentElement.classList.remove('dark') }
     setIsDark(useDark)
 
-    // Scroll listener
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
+    // Scroll listener — condensed navbar, reading progress and active section
+    let frame = 0
+    const measure = () => {
+      frame = 0
+      const doc = document.documentElement
+      const y = window.scrollY
+
+      setScrolled(y > 40)
+
+      const scrollable = doc.scrollHeight - doc.clientHeight
+      setProgress(scrollable > 0 ? Math.min(y / scrollable, 1) : 0)
+
+      // The section that has crossed the upper third of the viewport wins.
+      const line = y + window.innerHeight * 0.35
+      let current = sectionIds[0]
+      for (const id of sectionIds) {
+        const el = document.getElementById(id)
+        if (el && el.offsetTop <= line) current = id
+      }
+      setActive(current)
+    }
+
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(measure)
+    }
+
+    measure()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      if (frame) cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
   }, [])
 
   return (
@@ -74,7 +108,12 @@ const Navbar = () => {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="px-4 py-1.5 rounded-full text-sm font-medium text-slate-600 dark:text-zinc-400 hover:text-violet-600 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-950/40 transition-all duration-200 font-Outfit"
+                  aria-current={active === link.href.slice(1) ? 'page' : undefined}
+                  className={`block px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 font-Outfit ${
+                    active === link.href.slice(1)
+                      ? 'text-violet-700 dark:text-violet-300 bg-violet-100 dark:bg-violet-950/60'
+                      : 'text-slate-600 dark:text-zinc-400 hover:text-violet-600 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-950/40'
+                  }`}
                 >
                   {link.label}
                 </a>
@@ -111,6 +150,14 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+
+        {/* reading progress */}
+        <div
+          className={`scroll-progress absolute bottom-0 left-0 h-0.5 w-full bg-gradient-to-r from-violet-500 to-indigo-500 ${
+            scrolled ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{ transform: `scaleX(${progress})` }}
+        />
       </nav>
 
       {/* ── Mobile slide-in drawer ── */}
@@ -138,7 +185,11 @@ const Navbar = () => {
                 <a
                   href={link.href}
                   onClick={closeMenu}
-                  className="block px-4 py-2.5 rounded-xl text-slate-700 dark:text-zinc-300 hover:text-violet-600 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-950/40 transition-all font-Outfit font-medium"
+                  className={`block px-4 py-2.5 rounded-xl transition-all font-Outfit font-medium ${
+                    active === link.href.slice(1)
+                      ? 'text-violet-700 dark:text-violet-300 bg-violet-50 dark:bg-violet-950/40'
+                      : 'text-slate-700 dark:text-zinc-300 hover:text-violet-600 dark:hover:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-950/40'
+                  }`}
                 >
                   {link.label}
                 </a>
