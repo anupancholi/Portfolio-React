@@ -1,7 +1,9 @@
+import { Container } from './Section'
+
 const Footer = () => {
   return (
-    <footer className="w-full px-[8%] py-10 border-t border-zinc-100 dark:border-zinc-800/60">
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <footer className="w-full py-10 border-t border-zinc-100 dark:border-zinc-800/60">
+      <Container className="flex flex-col sm:flex-row items-center justify-between gap-4">
 
         {/* left — monogram + name */}
         <a href="#top" className="flex items-center gap-2 group">
@@ -49,7 +51,7 @@ const Footer = () => {
             </a>
           </li>
         </ul>
-      </div>
+      </Container>
     </footer>
   )
 }

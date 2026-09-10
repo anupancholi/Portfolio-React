@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import right_arrow_white from '../assets/right-arrow-white.png'
 import mail_icon from '../assets/mail_icon.png'
 import mail_icon_dark from '../assets/mail_icon_dark.png'
+import Reveal from './Reveal'
+import { Section, SectionHeading } from './Section'
 
 const Contact = () => {
   const [result, setResult] = useState('')
@@ -47,29 +49,21 @@ const Contact = () => {
   }, [])
 
   return (
-    <section
-      id="contact"
-      className="w-full px-[8%] py-24 scroll-mt-20 relative overflow-hidden"
-    >
+    <Section id="contact" className="relative overflow-hidden">
       {/* background accent */}
       <div className="absolute inset-0 -z-10 bg-zinc-50/80 dark:bg-transparent" />
       <div className="absolute -z-10 top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-violet-600/5 dark:bg-violet-600/4 rounded-full blur-3xl pointer-events-none" />
 
-      {/* ── section label ── */}
-      <p className="text-center text-xs font-semibold tracking-widest uppercase text-violet-600 dark:text-violet-400 font-Outfit mb-3">
-        Let's connect
-      </p>
-      <h2 className="text-center text-4xl sm:text-5xl font-extrabold font-Outfit text-slate-900 dark:text-white mb-4 tracking-tight">
-        Get in touch
-      </h2>
-      <p className="text-center max-w-md mx-auto text-slate-500 dark:text-zinc-400 font-Outfit mb-3 text-sm leading-relaxed">
-        Have a project in mind, want to collaborate, or just want to say hi? I'm all ears.
-      </p>
+      <SectionHeading
+        eyebrow="Let's connect"
+        title="Get in touch"
+        subtitle="Looking for a backend or full-stack role, and happy to talk through interesting problems either way. Drop me a line."
+      />
 
-      {/* email link */}
+      {/* email link — pulled up under the heading block */}
       <a
         href="mailto:pancholianurodh@gmail.com"
-        className="flex items-center justify-center gap-2 w-max mx-auto mb-12 text-sm font-semibold text-violet-600 dark:text-violet-400 hover:underline font-Outfit"
+        className="flex items-center justify-center gap-2 w-max mx-auto -mt-10 mb-12 text-sm font-semibold text-violet-600 dark:text-violet-400 hover:underline font-Outfit"
       >
         <img src={mail_icon} alt="" className="w-4 dark:hidden" />
         <img src={mail_icon_dark} alt="" className="w-4 hidden dark:block" />
@@ -77,6 +71,7 @@ const Contact = () => {
       </a>
 
       {/* ── form ── */}
+      <Reveal delay={160}>
       <form
         onSubmit={onSubmit}
         className="max-w-xl mx-auto bg-white dark:bg-darkSurface border border-zinc-200 dark:border-zinc-800 rounded-2xl p-8 shadow-card"
@@ -134,7 +129,8 @@ const Contact = () => {
           </p>
         )}
       </form>
-    </section>
+      </Reveal>
+    </Section>
   )
 }
 
